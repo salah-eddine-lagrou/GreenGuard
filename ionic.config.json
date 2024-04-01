@@ -1,0 +1,7 @@
+{
+  "name": "GreenGuard",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

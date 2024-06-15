@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private router: Router) {}
+
+  showHeader(): boolean {
+    const currentRoute = this.router.url;
+    return currentRoute.includes('/listing') || currentRoute.includes('/settings');
+  }
+
+  showTabs(): boolean {
+    const currentRoute = this.router.url;
+    return currentRoute.includes('/listing') || currentRoute.includes('/settings');
+  }
 }

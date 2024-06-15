@@ -1,0 +1,104 @@
+ion-content {
+  --padding-start: 2rem;
+  --padding-end: 2rem;
+  --padding-top: 5.5rem;
+
+  .criteria {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.5rem;
+    width: max-content;
+    //! margin-left: -13px;
+  }
+
+  .list-header {
+    padding-top: 10px;
+    font-weight: 500;
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 1.6rem;
+    margin-top: 2.5rem;
+    text-align: center;
+  }
+
+  .listing {
+    background: linear-gradient(45deg, #03be60, #00b3a4, #048650);
+    border-radius: 70px 70px 0px 0px;
+    height: fit-content;
+    padding-bottom: 140px;
+    margin-left: -40px;
+    margin-right: -40px;
+  }
+
+  .history-list {
+    .history {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      backdrop-filter: blur(5px);
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 10px;
+
+      .color-band-status {
+        width: 25px;
+        height: 77px;
+        margin-top: -10px;
+        margin-bottom: -10px;
+        margin-left: -13px;
+        margin-right: 4px;
+      }
+
+      .green {
+        background-color: green;
+      }
+
+      .red {
+        background-color: red;
+      }
+
+      .yellow {
+        background-color: yellow;
+      }
+    }
+
+
+
+    img {
+      width: 50px;
+      height: 50px;
+      // border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .history-content {
+      flex: 1;
+
+      .title-date {
+        display: flex;
+      }
+    }
+
+    h2 {
+      font-weight: bold;
+      width: 64%;
+      margin-top: -1px;
+    }
+
+    p {
+      font-weight: 300; // Use a lighter font weight for the description
+      margin: 0; // Remove default margins
+    }
+
+    .date {
+      color: #484848; // Use a lighter color for the date
+    }
+  }
+
+}
+
+ion-item {
+  --background: transparent; /* Set the background color to transparent */
+}
+

@@ -236,9 +236,35 @@
 }
 
 html {
-  /* 
+  /*
    * For more information on dynamic font scaling, visit the documentation:
    * https://ionicframework.com/docs/layout/dynamic-font-scaling
    */
   --ion-dynamic-font: var(--ion-default-dynamic-font);
+}
+
+body, html {
+  --ion-background-color: #ffffff !important; // White background color
+  --ion-text-color: #000000 !important; // Black text color
+}
+
+* {
+  // font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #000000;
+}
+
+ion-searchbar {
+  .searchbar-input-container {
+    input {
+      padding-top: 14px !important;
+      padding-bottom: 12px !important;
+      font-size: 18px !important;
+    }
+
+    .searchbar-search-icon {
+      top: 15px !important;
+      width: 25px;
+      height: 25px;
+    }
+  }
 }

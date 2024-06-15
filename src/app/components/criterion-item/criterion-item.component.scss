@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  .image-card {
+    background-color: #f3f3f3;
+    padding: 0.8rem;
+    border-radius: 1.5rem;
+    margin-bottom: 0.5rem;
+    display: flex; // Ensure flex layout to align items vertically
+    align-items: center; // Center items vertically
+    justify-content: center; // Center items horizontally
+
+    ion-img {
+      width: 44px; // Make image width 100% of its container
+      height: 44px; // Automatically adjust height to maintain aspect ratio
+      display: block; // Ensure image behaves as a block element
+      border-radius: 1rem; // Adjust border-radius if needed
+    }
+  }
+
+  p {
+    color: #c7c7c7;
+    margin: 0;
+  }
+}
+
+.wrapper.active {
+  .image-card {
+    background-color: rgb(145, 146, 145);
+  }
+
+  p {
+    color: #1d1d1d;
+    // font-weight: 600;
+  }
+}
+

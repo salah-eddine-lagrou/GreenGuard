@@ -1,0 +1,111 @@
+ion-content {
+  --background: linear-gradient(45deg, #03be60, #00b3a4, #048650);
+  // position: relative;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0.5rem;
+
+    ion-button {
+      height: 60px;
+      width: 60px;
+
+      ion-icon {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .card {
+    // height: 94%;
+    top: 58px;
+    height: fit-content;
+    width: 100%;
+    background: white;
+    position: absolute;
+    bottom: 0;
+    border-radius: 70px 70px 0px 0px;
+    padding: 2rem;
+
+
+    .image {
+      position: absolute;
+      top: 2rem;
+      width: 80%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 35px;
+
+
+      img {
+        box-shadow: 0 6px 32px rgba(0, 61, 54, 1);
+        border-radius: 35px;
+        border-radius: 35px;
+      }
+    }
+
+    .card-title {
+      margin-top: 95%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 1.2rem;
+
+      h1 {
+        font-weight: 700;
+        font-size: 2.1rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+        font-weight: 300;
+        border-radius: 20px;
+        padding: 5px;
+        padding-inline: 10px;
+        color: white;
+      }
+      .green {
+        background-color: green;
+      }
+      .red {
+        background-color: red;
+      }
+    }
+
+    .badge {
+      margin-right: 1rem;
+      background: linear-gradient(45deg, #03be60, #00b3a4, #048650);
+      color: white;
+      display: flex;
+      align-items: center;
+      border-radius: 1rem;
+      padding: 0.6rem;
+
+      ion-icon {
+        color: white;
+        margin-right: 0.3rem;
+      }
+    }
+
+    .badge-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .description {
+      margin-bottom: 2.5rem;
+
+      h1 {
+        font-weight: 500;
+      }
+
+      p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #747474;
+      }
+    }
+  }
+}

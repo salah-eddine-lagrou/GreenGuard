@@ -1,0 +1,35 @@
+<!-- TODO: fix the navigating between pages for about us, website references and faq -->
+
+<ion-menu [type]="menuType" content-id="main-content">
+  <ion-content>
+    <ion-menu-toggle>
+      <ion-buttons>
+        <ion-button>
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-menu-toggle>
+    <app-faq></app-faq>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-content class="ion-padding">
+    <div class="img-container">
+      <img src="assets\images\dashboard-removebg-preview.png" alt="">
+      <p>
+        Welcome! This page contains an FAQ section to answer common questions, as well as links to our About Us and Website References sections.
+      </p>
+    </div>
+    <br/>
+    <ion-menu-toggle>
+      <button class="button btn type--B">
+        <div class="button__line"></div>
+        <div class="button__line"></div>
+        <span class="button__text">FAQ</span>
+        <div class="button__drow1"></div>
+        <div class="button__drow2"></div>
+      </button>
+    </ion-menu-toggle>
+  </ion-content>
+</div>

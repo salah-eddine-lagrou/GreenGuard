@@ -1,0 +1,29 @@
+<nav class="menu">
+  <a class="nav-item nav-item-t" routerLink="/listing" >
+    <ion-icon name="reader-outline"></ion-icon>
+    <p class="nav-item-text">History</p>
+    <span class="tab-title">History</span>
+  </a>
+
+  <input type="checkbox" name="" class="checkbox" [ngClass]="checkboxClass">
+  <div class="checkbox-list">
+    <a class="nav-item" (click)="selectImage()" >
+      <ion-icon name="cloud-upload-outline"></ion-icon>
+      <span class="tab-title">Upload</span>
+    </a>
+    <a class="nav-item" (click)="takeImage()">
+      <ion-icon name="camera-outline" style="color: white; font-size: 36px;"></ion-icon>
+      <span class="tab-title">Camera</span>
+    </a>
+    <a class="nav-item" >
+      <ion-icon name="notifications-outline"></ion-icon>
+      <span class="tab-title">Notification</span>
+    </a>
+  </div>
+
+  <a class="nav-item nav-item-t" routerLink="/settings" >
+    <ion-icon name="settings-outline"></ion-icon>
+    <p class="nav-item-text">Support</p>
+    <span class="tab-title">Support</span>
+  </a>
+</nav>

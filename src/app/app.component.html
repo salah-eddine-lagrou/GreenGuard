@@ -1,3 +1,14 @@
 <ion-app>
+  @if (showHeader()) {
+    <ion-header>
+      <ion-img class="ion-logo" src="assets\images\GreenGuard_Logo-removebg-preview.png"></ion-img>
+    </ion-header>
+  }
+
   <ion-router-outlet></ion-router-outlet>
+
+  @if (showTabs()) {
+    <app-tabs></app-tabs>
+  }
+
 </ion-app>

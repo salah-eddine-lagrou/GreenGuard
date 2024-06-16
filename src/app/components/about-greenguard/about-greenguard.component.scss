@@ -1,0 +1,44 @@
+/* styles.scss or your component's .scss file */
+* {
+  background: white;
+  background-color: white;
+}
+ion-content {
+  --background: #ffffff;
+  --ion-background-color: #ffffff;
+
+  .img-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 100px;
+    }
+  }
+}
+
+ion-card {
+  --ion-background-color: #ffffff;
+}
+
+ion-card-header,
+ion-card-content,
+ion-list-header,
+ion-item {
+  --background: #ffffff;
+  --ion-background-color: #ffffff;
+  --color: #000000; /* Ensure text is visible against a white background */
+}
+
+ion-card-title,
+ion-label {
+  --color: #000000;
+}
+
+ion-icon {
+  --color: #000000;
+}
+
+.benefits {
+  margin-bottom: 12rem;
+}

@@ -2,18 +2,19 @@ ion-menu {
   margin-top: 4rem;
   ion-content {
     ion-menu-toggle {
+      visibility: hidden;  //! we don't need it we can simply swipe right
       position: absolute;
       display: flex;
       justify-content: center;
       align-items: center;
-      top: 1.2rem;
-      left: 14rem;
+      top: calc(50% - 30px);
+      left: 15rem;
       z-index: 1000;
       border-radius: 59px;
       width: 60px;
       background-color: #fcfcfc;
       height: 60px;
-      box-shadow: 3px 8px 18px 5px rgba(0, 0, 0, 0.1);
+      box-shadow: 3px 8px 18px 10px rgba(0, 0, 0, 0.1);
 
       ion-buttons {
         width: 100%;

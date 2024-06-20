@@ -31,6 +31,8 @@ export class ReviewPage implements OnInit {
     this.buttonText = 'Sent';
     const btn = document.querySelector("#btn");
     btn?.classList.add("active");
+
+    // this.analyzeImage();
   }
 
   back2listening() {
@@ -103,4 +105,8 @@ export class ReviewPage implements OnInit {
   }
 
   //! Start the process of sending data using the service
+  // create the necessry method and call it in the active send method that we use to change style of the button send
+  analyzeImage() {
+
+  }
 }

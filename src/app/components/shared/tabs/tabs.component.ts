@@ -24,7 +24,12 @@ export class TabsComponent  implements OnInit {
   routerSubscription!: Subscription;
   checkboxClass: string = "";
 
-  constructor(private platform: Platform, private loadingCtrl: LoadingController, private router: Router, private navCtrl: NavController) { }
+  constructor(
+    private platform: Platform,
+    private loadingCtrl: LoadingController,
+    private router: Router,
+    private navCtrl: NavController
+  ) { }
 
   async ngOnInit() {
     console.log("run the tabs")

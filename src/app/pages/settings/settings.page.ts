@@ -13,5 +13,4 @@ export class SettingsPage implements OnInit {
   ngOnInit() {
     console.log("running from settings");
   }
-
 }

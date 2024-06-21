@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ReviewPageRoutingModule } from './review-routing.module';
 
 import { ReviewPage } from './review.page';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ReviewPageRoutingModule
+    ReviewPageRoutingModule,
+    HttpClientModule
   ],
   declarations: [ReviewPage]
 })

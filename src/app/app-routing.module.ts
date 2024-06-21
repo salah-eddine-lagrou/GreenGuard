@@ -24,6 +24,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/history-details/history-details.module').then( m => m.HistoryDetailsPageModule)
   },
   {
+    path: 'history-details',
+    loadChildren: () => import('./pages/history-details/history-details.module').then( m => m.HistoryDetailsPageModule)
+  },
+  {
     path: 'review',
     loadChildren: () => import('./pages/review/review.module').then( m => m.ReviewPageModule)
   },

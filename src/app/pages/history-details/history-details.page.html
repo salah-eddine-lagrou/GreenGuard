@@ -10,13 +10,18 @@
   <!-- History Details Card -->
   <div class="card">
     <div class="image">
-      <img src="assets\images\capture leaf.png" alt="">
+      <!-- <img src="assets\images\capture leaf.png" alt=""> -->
+      <img src="{{result.plant_image_data}}" alt="">
     </div>
 
     <div class="card-content">
       <div class="card-title">
-        <h1 class="ion-no-margin">Black spot, Rust</h1>
-        <p class="ion-no-margin" ngClass="red">infected</p>
+        <h1 class="ion-no-margin">{{ result.disease.name }}</h1>
+        @if (result.is_infected) {
+          <p class="ion-no-margin" ngClass="red">infected</p>
+        } @else {
+          <p class="ion-no-margin" ngClass="green">Not infected</p>
+        }
       </div>
 
       <div class="badge-container">
@@ -30,8 +35,7 @@
 
       <div class="description">
         <h1>Description</h1>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut officia repellat fugiat doloribus. Consequuntur optio necessitatibus dignissimos nemo sequi, odit at voluptatum labore dolor, officia, delectus sed quia a ipsum?</p>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut officia repellat fugiat doloribus. Consequuntur optio necessitatibus dignissimos nemo sequi, odit at voluptatum labore dolor, officia, delectus sed quia a ipsum?</p>
+        <p>{{ result.disease.description }}</p>
       </div>
 
     </div>

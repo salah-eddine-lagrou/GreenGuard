@@ -1,15 +1,15 @@
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <!-- SEARCHBAR -->
   <!-- todo: when someonne start typing the Criteria should DISPLAY NONE ! -->
-  <app-searchbar></app-searchbar>
+  <ion-searchbar (ionInput)="filterDiagnostics($event)"></ion-searchbar>
 
   <!-- CRITERIA -->
   <div class="criteria">
-    <app-criterion-item
-      *ngFor="let item of criteria"
-      [item]="item"
-      (click)="toggleItemStatus(item)"
-    ></app-criterion-item>
+    <app-criterion-item *ngFor="let item of criteria" [item]="item"
+      (click)="toggleItemStatus(item)"></app-criterion-item>
   </div>
 
   <!-- History captured -->
@@ -17,116 +17,30 @@
     <h1 class="list-header">History</h1>
     <div class="history-list">
       <!-- todo passing the id of the item to visualize it in the detail page -->
-      <div class="history" (click)="goToDetailHistory(1)">
-        <div class="color-band-status" ngClass="green"></div>
-        <img src="assets\images\capture leaf.png" alt="Image 1">
-        <div class="history-content">
-          <div class="title-date">
-            <h2>Title 1</h2>
-            <span class="date">April 10, 2024</span>
+      @for (item of filteredDiagnostics; track $index) {
+        <div class="history" (click)="goToDetailHistory(item)">
+          @if (item.is_infected) {
+            <div class="color-band-status" ngClass="red"></div>
+          } @else {
+            <div class="color-band-status" ngClass="green"></div>
+          }
+          <img src="{{ item.plant_image }}" alt="Image 1">
+          <div class="history-content">
+            <div class="title-date">
+              <h2>{{ item.plant.name }}</h2>
+              <span class="date">{{ extractDateTime(item.timestamp) }}</span>
+            </div>
+            <p>
+              @if (item.is_infected) {
+                <p class="ion-no-margin" ngClass="red">infected</p>
+              } @else {
+                <p class="ion-no-margin" ngClass="green">Not infected</p>
+              }
+            </p>
           </div>
-          <p>Description 1</p>
         </div>
-      </div>
-      <div class="history" (click)="goToDetailHistory(1)">
-        <div class="color-band-status" ngClass="red"></div>
-        <img src="assets\images\capture leaf.png" alt="Image 1">
-        <div class="history-content">
-          <div class="title-date">
-            <h2>Title 2</h2>
-            <span class="date">April 10, 2024</span>
-          </div>
-          <p>Description 2</p>
-        </div>
-      </div>
-      <div class="history" (click)="goToDetailHistory(1)">
-        <div class="color-band-status" ngClass="red"></div>
-        <img src="assets\images\capture leaf.png" alt="Image 1">
-        <div class="history-content">
-          <div class="title-date">
-            <h2>Title 2</h2>
-            <span class="date">April 10, 2024</span>
-          </div>
-          <p>Description 2</p>
-        </div>
-      </div>
-      <div class="history" (click)="goToDetailHistory(1)">
-        <div class="color-band-status" ngClass="red"></div>
-        <img src="assets\images\capture leaf.png" alt="Image 1">
-        <div class="history-content">
-          <div class="title-date">
-            <h2>Title 2</h2>
-            <span class="date">April 10, 2024</span>
-          </div>
-          <p>Description 2</p>
-        </div>
-      </div>
-      <div class="history" (click)="goToDetailHistory(1)">
-        <div class="color-band-status" ngClass="red"></div>
-        <img src="assets\images\capture leaf.png" alt="Image 1">
-        <div class="history-content">
-          <div class="title-date">
-            <h2>Title 2</h2>
-            <span class="date">April 10, 2024</span>
-          </div>
-          <p>Description 2</p>
-        </div>
-      </div>
-      <div class="history" (click)="goToDetailHistory(1)">
-        <div class="color-band-status" ngClass="red"></div>
-        <img src="assets\images\capture leaf.png" alt="Image 1">
-        <div class="history-content">
-          <div class="title-date">
-            <h2>Title 2</h2>
-            <span class="date">April 10, 2024</span>
-          </div>
-          <p>Description 2</p>
-        </div>
-      </div>
-      <div class="history" (click)="goToDetailHistory(1)">
-        <div class="color-band-status" ngClass="red"></div>
-        <img src="assets\images\capture leaf.png" alt="Image 1">
-        <div class="history-content">
-          <div class="title-date">
-            <h2>Title 2</h2>
-            <span class="date">April 10, 2024</span>
-          </div>
-          <p>Description 2</p>
-        </div>
-      </div>
-      <div class="history" (click)="goToDetailHistory(1)">
-        <div class="color-band-status" ngClass="red"></div>
-        <img src="assets\images\capture leaf.png" alt="Image 1">
-        <div class="history-content">
-          <div class="title-date">
-            <h2>Title 2</h2>
-            <span class="date">April 10, 2024</span>
-          </div>
-          <p>Description 2</p>
-        </div>
-      </div>
-      <div class="history" (click)="goToDetailHistory(1)">
-        <div class="color-band-status" ngClass="red"></div>
-        <img src="assets\images\capture leaf.png" alt="Image 1">
-        <div class="history-content">
-          <div class="title-date">
-            <h2>Title 2</h2>
-            <span class="date">April 10, 2024</span>
-          </div>
-          <p>Description 2</p>
-        </div>
-      </div>
-      <div class="history" (click)="goToDetailHistory(1)">
-        <div class="color-band-status" ngClass="red"></div>
-        <img src="assets\images\capture leaf.png" alt="Image 1">
-        <div class="history-content">
-          <div class="title-date">
-            <h2>Title 2</h2>
-            <span class="date">April 10, 2024</span>
-          </div>
-          <p>Description 2</p>
-        </div>
-      </div>
+      }
+
       <!-- Add more historys as needed -->
     </div>
   </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Filesystem, Directory } from '@capacitor/filesystem';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, NavController } from '@ionic/angular';
 import { PlantService } from 'src/app/services/plant.service';
 
 const IMAGE_DIR = "stored-images";
@@ -20,11 +20,32 @@ interface LocalFile {
 export class ReviewPage implements OnInit {
   imageReview?: LocalFile;
 
-  constructor(private loadingCtrl: LoadingController, private router: Router, private plantService: PlantService) { }
+  currentDate: string = "";
+  currentTime: string = "";
+
+  constructor(
+    private loadingCtrl: LoadingController,
+    private router: Router,
+    private plantService: PlantService,
+    private navCtrl: NavController
+  ) { }
 
   ngOnInit() {
     console.log("running from the review page");
     this.loadMostRecentImage()
+    this.initializeCurrentDateTime();
+  }
+
+  initializeCurrentDateTime() {
+    const now = new Date();
+    this.currentDate = now.toISOString().split('T')[0];
+    this.currentTime = now.toTimeString().split(' ')[0].slice(0, 5);
+  }
+
+  onDateTimeChange(event: any) {
+    const selectedDate = new Date(event.detail.value);
+    this.currentDate = selectedDate.toISOString().split('T')[0];
+    this.currentTime = selectedDate.toTimeString().split(' ')[0].slice(0, 5);
   }
 
   buttonText: string = 'Send';
@@ -105,6 +126,12 @@ export class ReviewPage implements OnInit {
     }
   }
 
+  getCurrentDateTime() {
+    const now = new Date();
+    this.currentDate = now.toISOString().split('T')[0];
+    this.currentTime = now.toTimeString().split(' ')[0].slice(0, 5);
+  }
+
   //! Start the process of sending data using the service
   analyzeImage() {
     if (this.imageReview) {
@@ -144,7 +171,8 @@ export class ReviewPage implements OnInit {
     this.plantService.analyzeImage(formData).subscribe(
       (result) => {
         console.log(result);
-        this.router.navigate(['history-details'], { state: { result } });
+        // this.router.navigate(['history-details'], { state: { result } });
+        this.navCtrl.navigateForward(['history-details'], { state: { result } });
       },
       (error) => {
         console.error('There was an error!', error);

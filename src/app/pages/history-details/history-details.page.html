@@ -1,22 +1,36 @@
 <ion-content>
   <div class="head">
     <ion-buttons>
-      <ion-button routerLink="/listing">
+      <ion-button (click)="backToListing(result)">
         <ion-icon slot="icon-only" color="light" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
   </div>
 
   <!-- History Details Card -->
-  <div class="card">
+  <div class="card" [style.height]="result.disease === 'None' || !result.disease ? '100vh' : ''">
     <div class="image">
       <!-- <img src="assets\images\capture leaf.png" alt=""> -->
-      <img src="{{result.plant_image_data}}" alt="">
+      @if (result.plant_image_data) {
+        <img src="{{result.plant_image_data}}" alt="">
+      } @else {
+        <img src="{{result.plant_image}}" alt="">
+      }
+
     </div>
 
-    <div class="card-content">
+    <div class="card-content" style="margin-top: 27rem;">
       <div class="card-title">
-        <h1 class="ion-no-margin">{{ result.disease.name }}</h1>
+        @if (result.disease === "None" || !result.disease) {
+          @if (!result.disease) {
+            <h1 class="ion-no-margin">{{ replaceUnderscores(result.plant.name) }}</h1>
+          }@else {
+            <h1 class="ion-no-margin">{{ replaceUnderscores(result.plant) }}</h1>
+          }
+
+        } @else {
+          <h1 class="ion-no-margin">{{ replaceUnderscores(result.disease.name) }}</h1>
+        }
         @if (result.is_infected) {
           <p class="ion-no-margin" ngClass="red">infected</p>
         } @else {
@@ -26,17 +40,21 @@
 
       <div class="badge-container">
         <div class="badge">
-          <ion-icon name="calendar-outline"></ion-icon> May 13, 2024
+          <ion-icon name="calendar-outline"></ion-icon> {{ date }}
         </div>
         <div class="badge">
-          <ion-icon name="time"></ion-icon> 18:20
+          <ion-icon name="time"></ion-icon> {{ time }}
         </div>
       </div>
+      @if (result.disease === "None" || !result.disease) {
 
-      <div class="description">
-        <h1>Description</h1>
-        <p>{{ result.disease.description }}</p>
-      </div>
+      } @else {
+         <div class="description">
+          <h1>Description</h1>
+          <p>{{ result.disease.description }}</p>
+        </div>
+      }
+
 
     </div>
   </div>

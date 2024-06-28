@@ -19,10 +19,10 @@ const routes: Routes = [
     path: 'listing',
     loadChildren: () => import('./pages/listing/listing.module').then( m => m.ListingPageModule)
   },
-  {
-    path: 'history-details/:id',
-    loadChildren: () => import('./pages/history-details/history-details.module').then( m => m.HistoryDetailsPageModule)
-  },
+  // {
+  //   path: 'history-details/:id',
+  //   loadChildren: () => import('./pages/history-details/history-details.module').then( m => m.HistoryDetailsPageModule)
+  // },
   {
     path: 'history-details',
     loadChildren: () => import('./pages/history-details/history-details.module').then( m => m.HistoryDetailsPageModule)

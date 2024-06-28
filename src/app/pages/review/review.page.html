@@ -10,10 +10,10 @@
       <div class="card-content">
         <div class="badge-container">
           <div class="badge">
-            <ion-icon name="calendar-outline"></ion-icon> May 13, 2024
+            <ion-icon name="calendar-outline"></ion-icon> {{ currentDate }}
           </div>
           <div class="badge">
-            <ion-icon name="time"></ion-icon> 18:20
+            <ion-icon name="time"></ion-icon> {{ currentTime }}
           </div>
           <div class="container-date-time">
             <ion-button id="open-modal" expand="block" class="edit-date-time"><ion-icon
@@ -46,7 +46,10 @@
       <ion-content class="ion-padding custom-modal-content">
         <div class="ion-margin-top">
           <ion-label>Select the date and time.</ion-label>
-          <ion-datetime class="custom-datetime"></ion-datetime>
+          <ion-datetime
+          class="custom-datetime"
+          [value]="currentDate"
+          (ionChange)="onDateTimeChange($event)"></ion-datetime>
         </div>
       </ion-content>
     </ng-template>

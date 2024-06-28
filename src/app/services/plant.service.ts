@@ -27,4 +27,8 @@ export class PlantService {
         })
       );
   }
+
+  getDignostics(): Observable<any> {
+    return this.http.get<any>(this.apiUrl);
+  }
 }

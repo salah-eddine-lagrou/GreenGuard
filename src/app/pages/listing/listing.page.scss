@@ -3,6 +3,17 @@ ion-content {
   --padding-end: 2rem;
   --padding-top: 5.5rem;
 
+  ion-searchbar {
+    --box-shadow: none;
+    --background: #f3f3f3;
+    --border-radius: 1.2rem;
+    --placeholder-font-weight: 600;
+    --placeholder-opacity: 0.2;
+
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+
   .criteria {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -52,10 +63,20 @@ ion-content {
 
       .green {
         background-color: green;
+        padding: 3px;
+        width: fit-content;
+        padding-inline: 12px;
+        color: white;
+        border-radius: 30px;
       }
 
       .red {
         background-color: red;
+        padding: 3px;
+        width: fit-content;
+        padding-inline: 12px;
+        color: white;
+        border-radius: 30px;
       }
 
       .yellow {
@@ -99,6 +120,6 @@ ion-content {
 }
 
 ion-item {
-  --background: transparent; /* Set the background color to transparent */
+  --background: transparent;
+  /* Set the background color to transparent */
 }
-
